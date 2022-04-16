@@ -20,8 +20,9 @@
         }).then(blob => {
             console.log(blob)
             document.getElementById('rainbow').src= URL.createObjectURL(blob);
-        });
-    </script>
+        })
+        .catch(error => console.error(error));
+    </script>ß
 </body>
 
 </html>
