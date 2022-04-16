@@ -11,10 +11,16 @@
 </head>
 
 <body>
-    <img src="" alt="" id="rainbow">
-    <script src="" async defer>
+    <img src="" alt="" id="rainbow" width="480px">
+    <script>
         console.log('in script');
-        fetch('rainbow.jpg');
+        fetch('rainbow.jpeg').then(response => {
+            console.log(response);
+            return response.blob();
+        }).then(blob => {
+            console.log(blob)
+            document.getElementById('rainbow').src= URL.createObjectURL(blob);
+        });
     </script>
 </body>
 
