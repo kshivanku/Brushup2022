@@ -11,18 +11,18 @@
 </head>
 
 <body>
-    <img src="" alt="" id="rainbow" width="480px">
+    <p id="poem"></p>
     <script>
         console.log('in script');
-        catchRainbow()
-            .then(response => console.log(response))
-            .catch(error => console.error(error));
-
-        async function catchRainbow() {
-            const response = await fetch('rainbow.jpeg');
-            const blob = await response.blob();
-            document.getElementById('rainbow').src = URL.createObjectURL(blob);
-            return 'done'
+        catchtext()
+            .then(poem => {
+                document.getElementById('poem').innerText = poem
+                console.log('yey')
+            })
+            .catch (error => console.error(error))
+        async function catchtext() {
+            const response = await fetch('poem.txt');
+            return await response.text();
         }
     </script>
 </body>
